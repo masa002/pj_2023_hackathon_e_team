@@ -51,10 +51,11 @@
 			background-color:#6495ed;
 			height:50px;
 			width:100%;
+			position: absolute;
+    		bottom: 0; 
 		}
 		.p1{
 			text-align:center;
-  			padding:13px 0;
 		}
     </style>
         <h1>ハッカソンEチーム</h1>
