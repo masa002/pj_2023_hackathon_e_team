@@ -95,8 +95,9 @@
 	if(isset($_POST['puzzlename'])){
 ?>
 <body>
-	<div>
-	</div>
+	<?php
+		require_once('random_gen.php');
+		require_once('puzzle.php'); ?>
 	<div class="button_solid004">
   		<a href="#">シェアする</a>
 	</div>

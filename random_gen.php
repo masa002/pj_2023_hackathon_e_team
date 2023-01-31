@@ -1,8 +1,12 @@
 <?php
 
-    $theme = $_POST['theme'];
+    $puzzlename = $_POST['puzzlename'];
+    // セキュリティー用のhtmlspecialchar
+    $puzzlename = htmlspecialchars($puzzlename, ENT_QUOTES, 'UTF-8');
+    // URLエンコード
+    $puzzlename = urlencode($puzzlename);
     // img タグ取得
-    $url = "https://aiimg.jatinsharma24.repl.co/v1/"+$theme;
+    $url = "https://aiimg.jatinsharma24.repl.co/v1/" . $puzzlename;
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -25,6 +29,6 @@
 
     // 画像保存
     $image_data = substr($data, strpos($data, "\r\n\r\n") + 4);
-    $image_name = "img/img" . ".png";
+    $image_name = "img/image" . ".png";
     file_put_contents($image_name, $image_data);
 ?>
