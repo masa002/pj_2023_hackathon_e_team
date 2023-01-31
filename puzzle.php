@@ -1,7 +1,7 @@
 <div id="puzzleContainer"></div>
 <div id="flag"></div>
-
-
+​
+​
 <style>
     #puzzleContainer {
     display: flex;
@@ -12,7 +12,7 @@
     background-size: cover;
     position: relative;
     }
-
+​
     #flag {
     display: none;
     }
@@ -26,7 +26,7 @@
     const rows = 5;
     const cols = 5;
     let selectedPiece = null;
-
+​
     for (let i = 0; i < rows; i++) {
     for (let j = 0; j < cols; j++) {
         const piece = document.createElement("div");
@@ -40,19 +40,19 @@
         puzzlePieces.push(piece);
     }
     }
-
+​
     // Shuffle pieces
     for (let i = puzzlePieces.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [puzzlePieces[i], puzzlePieces[j]] = [puzzlePieces[j], puzzlePieces[i]];
     }
-
+​
     puzzlePieces.forEach((piece, index) => {
     piece.style.backgroundImage = `url(img/image.png)`;
     piece.style.left = `${(index % cols) * pieceSize}px`;
     piece.style.top = `${Math.floor(index / cols) * pieceSize}px`;
     });
-
+​
     function handleMouseUp(event) {
         if (selectedPiece) {
             const selectedPieceIndex = puzzlePieces.indexOf(selectedPiece);
@@ -61,7 +61,7 @@
             const selectedPieceCol = selectedPieceIndex % cols;
             const currentPieceRow = Math.floor(currentPieceIndex / cols);
             const currentPieceCol = currentPieceIndex % cols;
-
+​
             if (
             (selectedPieceRow === currentPieceRow &&
                 Math.abs(selectedPieceCol - currentPieceCol) === 1) ||
@@ -77,11 +77,11 @@
             event.target.style.left = `${selectedPieceCol * pieceSize}px`;
             event.target.style.top = `${selectedPieceRow * pieceSize}px`;
             }
-
+​
             selectedPiece.style.border = "none";
             selectedPiece.style.zIndex = 0;
             selectedPiece = null;
-
+​
             if (puzzlePieces.every((piece, index) => {
                 const backgroundPosition = piece.style.backgroundPosition.split(" ");
                 const backgroundPositionX = parseInt(backgroundPosition[0]);
@@ -96,7 +96,7 @@
                 flag.innerHTML = "OK";
                 flag.style.display = "block";
             }
-
+​
         } else {
             selectedPiece = event.target;
             selectedPiece.style.zIndex = 1;
