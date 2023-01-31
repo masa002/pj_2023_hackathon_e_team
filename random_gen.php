@@ -29,6 +29,16 @@
 
     // 画像保存
     $image_data = substr($data, strpos($data, "\r\n\r\n") + 4);
-    $image_name = "img/image" . ".png";
+    $image_name = "img/image.png";
     file_put_contents($image_name, $image_data);
+
+    // 保存した画像をリサイズして上書き保存
+    $image = imagecreatefrompng($image_name);
+    $width = imagesx($image);
+    $height = imagesy($image);
+    $new_width = 500;
+    $new_height = 500;
+    $new_image = imagecreatetruecolor($new_width, $new_height);
+    imagecopyresampled($new_image, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+    imagepng($new_image, $image_name);
 ?>
