@@ -1,6 +1,7 @@
 <div id="puzzleContainer"></div>
 <div id="flag"></div>
 
+
 <style>
     #puzzleContainer {
     display: flex;
@@ -76,20 +77,26 @@
             event.target.style.left = `${selectedPieceCol * pieceSize}px`;
             event.target.style.top = `${selectedPieceRow * pieceSize}px`;
             }
+
             selectedPiece.style.border = "none";
             selectedPiece.style.zIndex = 0;
             selectedPiece = null;
 
-            // if conpleted puzzle show CONGRATULATIONS
-            if (
-            puzzlePieces.every(
-                (piece, index) =>
-                piece.style.backgroundPosition ===`-${(index % cols) * pieceSize}px -${(index / cols) * pieceSize}px`
-            )
-            ) {
-                console.log("CONGRATULATIONS");
+            if (puzzlePieces.every((piece, index) => {
+                const backgroundPosition = piece.style.backgroundPosition.split(" ");
+                const backgroundPositionX = parseInt(backgroundPosition[0]);
+                const backgroundPositionY = parseInt(backgroundPosition[1]);
+                const pieceRow = Math.floor(index / cols);
+                const pieceCol = index % cols;
+                return (
+                backgroundPositionX === -pieceCol * pieceSize &&
+                backgroundPositionY === -pieceRow * pieceSize
+                );
+            })) {
+                flag.innerHTML = "OK";
                 flag.style.display = "block";
             }
+
         } else {
             selectedPiece = event.target;
             selectedPiece.style.zIndex = 1;
