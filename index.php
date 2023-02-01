@@ -215,17 +215,17 @@
 	</div>
 </head>
 <body>
-<div class="sample-popup-window " id="disp">
-	<input type="checkbox" id="sample-popup-switch" />
-	<div class="sample-popup-background"></div>
-	<div class="sample-popup-box">
-		<div class="sample-popup-content">
-			<img src ="./img/guide.png" class="opera_img">
-			<!-- <label for="sample-popup-switch" class="sample-popup-close" id ="close_btn"  onclick="clickBtn1()">閉じる</label> -->
-			<input type="button" value="閉じる" onclick="clickBtn1()" />
+	<div class="sample-popup-window " id="disp">
+		<input type="checkbox" id="sample-popup-switch" />
+		<div class="sample-popup-background"></div>
+		<div class="sample-popup-box">
+			<div class="sample-popup-content">
+				<img src ="./img/guide.png" class="opera_img">
+				<!-- <label for="sample-popup-switch" class="sample-popup-close" id ="close_btn"  onclick="clickBtn1()">閉じる</label> -->
+				<input type="button" value="閉じる" onclick="clickBtn1()" />
+			</div>
 		</div>
 	</div>
-</div>
 <?php
 	if(isset($_POST['puzzlename'])){
 ?>
