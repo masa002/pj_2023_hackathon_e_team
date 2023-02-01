@@ -74,10 +74,6 @@
 			.p1{
 				text-align:center;
 			}
-			.p2{
-				padding-top: 13px;
-				text-align:center;
-			}
 			.word{
 				display: block;
 				text-align: center;
@@ -92,6 +88,20 @@
 				margin:auto;
 				margin-bottom:50px;
 			}
+			.container {
+				min-height: 70vh; 
+    			position: relative;
+    			padding-bottom: 50px;
+    			box-sizing: border-box;
+			}
+			.footer1{
+				background-color:#6495ed;
+				height:50px;
+				width:100%;
+				position: absolute;
+    			bottom: 0;
+
+	}
     </style>
 		<a href="index.php"><h1 class="head2 marginB3">AIスライドパズル</h1></a>
 </head>
@@ -99,32 +109,24 @@
 	if(isset($_POST['puzzlename'])){
 ?>
 <body>
+	<div class="container">
 	<?php
 		require_once('random_gen.php');
 		require_once('puzzle.php'); ?>
 	<div class="button_solid004 share" hidden>
   		<a href="#">シェアする</a>
 	</div>
-	<footer class="footer1"style="background-color:#6495ed;
-			height:50px;
-			width:100%;
-			margin-top:5px;
-      		bottom: 0;">
-		<p class="p2">© 2023 hackathon_e_team</p>
+	<footer class="footer1">
+		<p class="p1">© 2023 hackathon_e_team</p>
 	</footer>
+	</div>
 <?php
 	}else{
 ?>
 <style>
-	.footer1{
-		background-color:#6495ed;
-			height:50px;
-			width:100%;
-			position: absolute;
-      		bottom: 0;
-	}
 </style>
 <body>
+	<div class="container">
 	<div class="word">
 		<h2>パズルにしたい画像のワードを入力</h2>
 		<form action="index.php"method="post">
@@ -137,6 +139,7 @@
 	<footer class="footer1">
 		<p class="p1">© 2023 hackathon_e_team</p>
 	</footer>
+	<div>
 <?php
 	}
 ?>
