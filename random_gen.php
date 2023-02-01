@@ -65,6 +65,7 @@
     $data = base64_decode($data);
     file_put_contents($image_name, $data);
 
+
     // 保存した画像をリサイズして上書き保存
     $image = imagecreatefrompng($image_name);
     $width = imagesx($image);

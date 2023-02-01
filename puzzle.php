@@ -1,5 +1,4 @@
 <div id="puzzleContainer"></div>
-<div id="flag"></div>
 
 <style>
     #puzzleContainer {
@@ -17,15 +16,14 @@
     }
 </style>
 <script>
-    // JavaScript
     const puzzleContainer = document.getElementById("puzzleContainer");
-    const flag = document.getElementById("flag");
     const puzzlePieces = [];
     const pieceSize = 100;
     const rows = 5;
     const cols = 5;
     let selectedPiece = null;
 
+    // ピースを作成
     for (let i = 0; i < rows; i++) {
     for (let j = 0; j < cols; j++) {
         const piece = document.createElement("div");
@@ -40,7 +38,7 @@
     }
     }
 
-    // Shuffle pieces
+    // ピースをシャッフル
     for (let i = puzzlePieces.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [puzzlePieces[i], puzzlePieces[j]] = [puzzlePieces[j], puzzlePieces[i]];
@@ -76,21 +74,45 @@
             event.target.style.left = `${selectedPieceCol * pieceSize}px`;
             event.target.style.top = `${selectedPieceRow * pieceSize}px`;
             }
+
+            // 選択時の赤枠とz-indexの設定を解除
             selectedPiece.style.border = "none";
             selectedPiece.style.zIndex = 0;
             selectedPiece = null;
 
-            // if conpleted puzzle show CONGRATULATIONS
-            if (
-            puzzlePieces.every(
-                (piece, index) =>
-                piece.style.backgroundPosition ===`-${(index % cols) * pieceSize}px -${(index / cols) * pieceSize}px`
-            )
-            ) {
-                console.log("CONGRATULATIONS");
-                flag.style.display = "block";
+            if (puzzlePieces.every((piece, index) => {
+                const backgroundPosition = piece.style.backgroundPosition.split(" ");
+                const backgroundPositionX = parseInt(backgroundPosition[0]);
+                const backgroundPositionY = parseInt(backgroundPosition[1]);
+                const pieceRow = Math.floor(index / cols);
+                const pieceCol = index % cols;
+                return (
+                backgroundPositionX === -pieceCol * pieceSize &&
+                backgroundPositionY === -pieceRow * pieceSize
+                );
+            })) {
+                // delay
+                setTimeout(() => {
+                    // class="share"のhiddenを外す
+                    document.getElementsByClassName("share")[0].hidden = false;
+                    // クリックイベントの削除
+                    puzzlePieces.forEach((piece) => {
+                        piece.removeEventListener("mouseup", handleMouseUp);
+                    });
+                    // 1枚の画像に戻す
+                    puzzleContainer.style.backgroundImage = `url(img/image.png)`;
+                    puzzleContainer.style.backgroundSize = "cover";
+                    puzzleContainer.style.backgroundPosition = "center";
+                    puzzleContainer.style.border = "none";
+                    // ピースを削除
+                    puzzlePieces.forEach((piece) => {
+                        puzzleContainer.removeChild(piece);
+                    });
+                }, 100);
             }
+
         } else {
+            // 選択時の赤枠とz-indexの設定
             selectedPiece = event.target;
             selectedPiece.style.zIndex = 1;
             selectedPiece.style.border = "2px solid red";
