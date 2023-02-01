@@ -214,10 +214,21 @@
 		</div>
 	</div>
 </head>
+<body>
+	<div class="sample-popup-window " id="disp">
+		<input type="checkbox" id="sample-popup-switch" />
+		<div class="sample-popup-background"></div>
+		<div class="sample-popup-box">
+			<div class="sample-popup-content">
+				<img src ="./img/guide.png" class="opera_img">
+				<!-- <label for="sample-popup-switch" class="sample-popup-close" id ="close_btn"  onclick="clickBtn1()">閉じる</label> -->
+				<input type="button" value="閉じる" onclick="clickBtn1()" />
+			</div>
+		</div>
+	</div>
 <?php
 	if(isset($_POST['puzzlename'])){
 ?>
-<body>
 	<div class="container">
 	<?php
 		require_once('random_gen.php');
@@ -232,22 +243,6 @@
 <?php
 	}else{
 ?>
-<div class="sample-popup-window " id="disp">
-			<input type="checkbox" id="sample-popup-switch" />
-			<div class="sample-popup-background"></div>
-			<div class="sample-popup-box">
-				<div class="sample-popup-content">
-				
-					<img src ="./img/guide.png" class="opera_img">
-					<!-- <label for="sample-popup-switch" class="sample-popup-close" id ="close_btn"  onclick="clickBtn1()">閉じる</label> -->
-					<input type="button" value="閉じる" onclick="clickBtn1()" />
-
-				</div>
-			</div>
-		</div>
-
-</div>
-<body>
 	<div class="container">
 	<div class="word">
 		<h2>パズルにしたい画像のワードを入力</h2>
