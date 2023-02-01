@@ -67,6 +67,33 @@
 				border-radius: 8px;
 				border-bottom: solid 5px #1d7fde;
 			}
+			#close{
+				position:absolute;	
+				top: 20px;
+				right:20%;
+				font-size: 5vh;/*ボタンの大きさ*/
+    			font-weight: bold;
+    			border: 1px solid #999;
+    			color: #999;
+    			display: flex;
+    			justify-content: center;
+    			align-items: center;
+    			border-radius: 100%;
+    			width: 1.3em;
+    			line-height: 1.3em;
+    			cursor: pointer;
+    			transition: .2s;
+			}
+			#close:hover{
+    			background: #333;
+    			border-color: #333;
+    			color: #FFF;
+}
+			.button_opera{
+				position:absolute;	
+				top: 60px;
+				right:0;
+			}
 			.button_opera input{
 				border: none;
 				position: relative;
@@ -98,7 +125,6 @@
 			.word{
 				display: block;
 				text-align: center;
-				margin-top: 100px;
 				margin-bottom: 40px;
 			}
 			.word input{
@@ -110,7 +136,7 @@
 				margin-bottom:50px;
 			}
 			.container {
-				min-height: 70vh; 
+				min-height: 100vh; 
     			position: relative;
     			padding-bottom: 50px;
     			box-sizing: border-box;
@@ -118,7 +144,9 @@
 			#hoge{
  				 display: inline;
 			}
-
+			.sample-popup-content img{
+				margin-left:25%;
+			}
 			#sample-popup-switch {
 				/* チェックボックスを非表示 */
 				display: none;
@@ -222,7 +250,7 @@
 			<div class="sample-popup-content">
 				<img src ="./img/guide.png" class="opera_img">
 				<!-- <label for="sample-popup-switch" class="sample-popup-close" id ="close_btn"  onclick="clickBtn1()">閉じる</label> -->
-				<input type="button" value="閉じる" onclick="clickBtn1()" />
+				<input id="close" type="button" value="✕" onclick="clickBtn1()" />
 			</div>
 		</div>
 	</div>
@@ -247,7 +275,7 @@
 	<div class="word">
 		<h2>パズルにしたい画像のワードを入力</h2>
 		<form action="index.php"method="post">
-		<input type="text"name="puzzlename"style="text-align: center;">
+		<input type="text"name="puzzlename"placeholder="英語で入力してください"style="text-align: center;">
 	</div>
 	<div class="button_solid004">
   		<input id="button1" type="submit" value="送信">
