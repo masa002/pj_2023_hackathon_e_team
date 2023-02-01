@@ -82,7 +82,7 @@
 				margin-bottom:50px;
 			}
     </style>
-		<h1 class="head2 marginB3">AIスライドパズル</h1>
+		<a href="index.php"><h1 class="head2 marginB3">AIスライドパズル</h1></a>
 </head>
 <?php
 	if(isset($_POST['puzzlename'])){
