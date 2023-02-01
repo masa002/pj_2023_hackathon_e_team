@@ -50,27 +50,32 @@
 				border-bottom: solid 2px #1d7fde;
 				transform: translateY(3px);
 			}
-			.button_solid004 input{
+			.button_solid004 #button1{
 				border: none;
 				position: relative;
 				display: flex;
 				justify-content: space-around;
 				align-items: center;
 				margin: 0 auto;
-				max-width: 240px;
+				width: 240px;
 				padding: 10px 25px;
 				color: #FFF;
 				transition: 0.3s ease-in-out;
 				font-weight: 600;
+				font-size: 20px;
 				background: #6bb6ff;
 				border-radius: 8px;
 				border-bottom: solid 5px #1d7fde;
 			}
-			.button_solid004 input:hover{
+			.button_solid004 #button1:hover{
 				border-bottom: solid 2px #1d7fde;
 				transform: translateY(3px);
 			}
 			.p1{
+				text-align:center;
+			}
+			.p2{
+				padding-top: 13px;
 				text-align:center;
 			}
 			.word{
@@ -81,6 +86,7 @@
 			}
 			.word input{
 				font-size:40px;
+				width: 50%;
 			}
 			#puzzleContainer{
 				margin:auto;
@@ -104,7 +110,7 @@
 			width:100%;
 			margin-top:5px;
       		bottom: 0;">
-		<p class="p1">© 2023 hackathon_e_team</p>
+		<p class="p2">© 2023 hackathon_e_team</p>
 	</footer>
 <?php
 	}else{
@@ -122,10 +128,10 @@
 	<div class="word">
 		<h2>パズルにしたい画像のワードを入力</h2>
 		<form action="index.php"method="post">
-		<input type="text" size="40"name="puzzlename">
+		<input type="text"name="puzzlename"style="text-align: center;">
 	</div>
 	<div class="button_solid004">
-  		<input type="submit" value="送信">
+  		<input id="button1" type="submit" value="送信">
 	</div>
 	</form>
 	<footer class="footer1">
