@@ -6,7 +6,7 @@
     $text = htmlspecialchars($text, ENT_QUOTES, 'UTF-8');
 
     // envファイルからAPIキーを取得
-    $env = parse_ini_file('.env');
+    $env = parse_ini_file('27f9504c9eca00bbdd8723a5f55ad933bffa43926d89b4c14130bd18c85dba5c.env');
     $apiKey = $env["API_KEY"];
 
     // 翻訳用のURLとパラメータを設定

@@ -1,27 +1,9 @@
-<div id="puzzleContainer"></div>
-
-<style>
-    #puzzleContainer {
-    display: flex;
-    flex-wrap: wrap;
-    width: 500px;
-    height: 500px;
-    background-size: cover;
-    position: relative;
-    }
-
-    #flag {
-    display: none;
-    }
-</style>
-<script>
-    const puzzleContainer = document.getElementById("puzzleContainer");
+const puzzleContainer = document.getElementById("puzzleContainer");
     const puzzlePieces = [];
     const pieceSize = 100;
     const rows = 5;
     const cols = 5;
-    // session の image_name  を取得
-    const imageName = "<?php echo $_SESSION['image_name']; ?>"
+
     let selectedPiece = null;
 
     // puzzleContainerにbackground-imageを設定
@@ -103,11 +85,13 @@
                     puzzlePieces.forEach((piece) => {
                         piece.removeEventListener("mouseup", handleMouseUp);
                     });
-                    // 1枚の画像に戻す
-                    puzzleContainer.style.backgroundImage = `url(${imageName})`;
-                    puzzleContainer.style.backgroundSize = "cover";
-                    puzzleContainer.style.backgroundPosition = "center";
-                    puzzleContainer.style.border = "none";
+                    // imgタグを追加し、puzzleContainer全体に背景画像を設定
+                    const img = document.createElement("img");
+                    img.src = imageName;
+                    img.style.width = "500px";
+                    img.style.height = "500px";
+                    puzzleContainer.appendChild(img);
+                    puzzleContainer.style.backgroundImage = "none";
                     // ピースを削除
                     puzzlePieces.forEach((piece) => {
                         puzzleContainer.removeChild(piece);
@@ -122,4 +106,3 @@
             selectedPiece.style.border = "2px solid red";
         }
     }
-</script>
