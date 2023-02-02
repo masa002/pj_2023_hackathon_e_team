@@ -1,0 +1,12 @@
+#puzzleContainer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 500px;
+    height: 500px;
+    background-size: cover;
+    position: relative;
+}
+
+    #flag {
+    display: none;
+}
