@@ -47,7 +47,8 @@
 		}
 	?>
 	<div class="button_solid004 share" hidden>
-  		<a href="#">シェアする</a>
+		<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" data-text="無料で遊べるAIスライドパズル" data-url="http://gladtech.starfree.jp/840aa32917c41ab4c490f8f2a530bfd4653fe3a7db44089bae2fddf112119d40/" data-show-count="false">Tweet</a>
+		<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 		<button type="submit"><img src="img/downloadicon.png" alt="送信" onclick="savefile('puzzle')"/></button>
 		<script src="js/download.js"></script>
 	</div>
