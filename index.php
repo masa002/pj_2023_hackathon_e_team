@@ -1,3 +1,8 @@
+<?php
+	if (!isset($_POST['puzzlename'])) {
+		session_start();
+	}
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -260,7 +265,12 @@
 	<div class="container">
 	<?php
 		require_once('random_gen.php');
-		require_once('puzzle.php'); ?>
+		if (isset($_SESSION['image_name'])) {
+			require_once('puzzle.php');
+		} else {
+			header('Location: index.php');
+		}
+	?>
 	<div class="button_solid004 share" hidden>
   		<a href="#">シェアする</a>
 	</div>
@@ -275,10 +285,13 @@
 	<div class="word">
 		<h2>パズルにしたい画像のワードを入力</h2>
 		<form action="index.php"method="post">
-		<input type="text"name="puzzlename"placeholder="英語で入力してください"style="text-align: center;">
+		<input type="text"name="puzzlename"placeholder="文字を入力してください"style="text-align: center;">
 	</div>
 	<div class="button_solid004">
   		<input id="button1" type="submit" value="送信">
+	</div>
+	<div class="loading" style="display:none; text-align: center;">
+		<p>Now Loading...</p>
 	</div>
 	</form>
 	<footer class="footer1">
@@ -290,32 +303,37 @@
 ?>
 
 <script>
-//初期表示は非表示
-document.getElementById("disp").style.display ="none";
+	//初期表示は非表示
+	document.getElementById("disp").style.display ="none";
 
-function clickBtn1(){
-	const disp = document.getElementById("disp");
+	function clickBtn1(){
+		const disp = document.getElementById("disp");
 
-	if(disp.style.display=="block"){
-		// noneで非表示
-		disp.style.display ="none";
-	}else{
-		// blockで表示
-		disp.style.display ="block";
+		if(disp.style.display=="block"){
+			// noneで非表示
+			disp.style.display ="none";
+		}else{
+			// blockで表示
+			disp.style.display ="block";
+		}
 	}
-}
 
-function Close(){
-	const disp = document.getElementById("disp");
+	function Close(){
+		const disp = document.getElementById("disp");
 
-	if(disp.style.display=="block"){
-		// noneで非表示
-		disp.style.display ="none";
-	}else{
-		// blockで表示
-		disp.style.display ="block";
+		if(disp.style.display=="block"){
+			// noneで非表示
+			disp.style.display ="none";
+		}else{
+			// blockで表示
+			disp.style.display ="block";
+		}
 	}
-}
+
+	function NowLoading(){
+			// loading のdisplayをblockにする
+			document.getElementsByClassName("loading").style.display ="block";
+	}
 </script>
 </body>
 </html>
