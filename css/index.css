@@ -228,7 +228,6 @@ button:hover {
     bottom: 0;
 }
 .share{
-    display:flex;
     justify-content: center;
 }
 .share button {

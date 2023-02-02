@@ -39,7 +39,6 @@
 ?>
 	<div class="container">
 	<?php
-		// loading Cushion page
 		require_once('components/random_gen.php');
 		if (isset($_SESSION['image_name'])) {
 			require_once('components/puzzle.php');
