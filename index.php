@@ -39,6 +39,7 @@
 ?>
 	<div class="container">
 	<?php
+		// loading Cushion page
 		require_once('components/random_gen.php');
 		if (isset($_SESSION['image_name'])) {
 			require_once('components/puzzle.php');
@@ -68,9 +69,6 @@
 	<div class="button_solid004">
   		<input id="button1" type="submit" value="送信">
 	</div>
-	<div class="loading" style="display:none; text-align: center;">
-		<p>Now Loading...</p>
-	</div>
 	</form>
 	<footer class="footer1">
 		<p class="p1">© 2023 hackathon_e_team</p>
@@ -81,5 +79,6 @@
 ?>
 
 <script src="js/index.js"></script>
+<script src="js/loading.js"></script>
 </body>
 </html>
