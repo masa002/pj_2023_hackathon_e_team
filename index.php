@@ -48,7 +48,8 @@
 	?>
 	<div class="button_solid004 share" hidden>
   		<a href="#">シェアする</a>
-		<button type="submit"><img src="img/downloadicon.png" alt="送信" /></button>
+		<button type="submit"><img src="img/downloadicon.png" alt="送信" onclick="savefile('puzzle')"/></button>
+		<script src="js/download.js"></script>
 	</div>
 	<footer class="footer1">
 		<p class="p1">© 2023 hackathon_e_team</p>
