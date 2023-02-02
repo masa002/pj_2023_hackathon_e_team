@@ -6,7 +6,6 @@
     flex-wrap: wrap;
     width: 500px;
     height: 500px;
-    background-image: url(img/image.png);
     background-size: cover;
     position: relative;
     }
@@ -21,7 +20,12 @@
     const pieceSize = 100;
     const rows = 5;
     const cols = 5;
+    // session の image_name  を取得
+    const imageName = "<?php echo $_SESSION['image_name']; ?>"
     let selectedPiece = null;
+
+    // puzzleContainerにbackground-imageを設定
+    puzzleContainer.style.backgroundImage = `url(${imageName})`;
 
     // ピースを作成
     for (let i = 0; i < rows; i++) {
@@ -45,7 +49,7 @@
     }
 
     puzzlePieces.forEach((piece, index) => {
-    piece.style.backgroundImage = `url(img/image.png)`;
+    piece.style.backgroundImage = `url(${imageName})`;
     piece.style.left = `${(index % cols) * pieceSize}px`;
     piece.style.top = `${Math.floor(index / cols) * pieceSize}px`;
     });
@@ -100,7 +104,7 @@
                         piece.removeEventListener("mouseup", handleMouseUp);
                     });
                     // 1枚の画像に戻す
-                    puzzleContainer.style.backgroundImage = `url(img/image.png)`;
+                    puzzleContainer.style.backgroundImage = `url(${imageName})`;
                     puzzleContainer.style.backgroundSize = "cover";
                     puzzleContainer.style.backgroundPosition = "center";
                     puzzleContainer.style.border = "none";

@@ -1,10 +1,29 @@
 <?php
-    // POSTの取得結果を$puzzlenameに格納する
-    $puzzlename = $_POST['puzzlename'];
-    // セキュリティー用のhtmlspecialchar
-    $puzzlename = htmlspecialchars($puzzlename, ENT_QUOTES, 'UTF-8');
-    // 画像の名前
-    $image_name = "img/image.png";
+    // postで送られてきた文字列を取得
+    $text = $_POST['puzzlename'];
+
+    // htmlspecialcharsでエスケープ処理
+    $text = htmlspecialchars($text, ENT_QUOTES, 'UTF-8');
+
+    // envファイルからAPIキーを取得
+    $env = parse_ini_file('.env');
+    $apiKey = $env["API_KEY"];
+
+    // 翻訳用のURLとパラメータを設定
+    $target = "en";
+    $url = "https://translation.googleapis.com/language/translate/v2?key=" . $apiKey . "&q=" . rawurlencode($text) . "&target=" . $target;
+
+    // 翻訳
+    $response = file_get_contents($url);
+    $response = json_decode($response, true);
+
+    // 翻訳した文字列を取得
+    $puzzlename = $response["data"]["translations"][0]["translatedText"];
+
+    // 画像の名前（乱数)
+    $image_name = "ai_image/" . hash('sha256', rand()) . ".png";
+    // 画像の名前をクライアントに送る為にセッションに保存
+    $_SESSION['image_name'] = $image_name;
 
     // // URLエンコード
     // $puzzlename = urlencode($puzzlename);

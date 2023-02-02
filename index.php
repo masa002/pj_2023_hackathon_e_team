@@ -1,3 +1,8 @@
+<?php
+	if (!isset($_POST['puzzlename'])) {
+		session_start();
+	}
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -264,7 +269,12 @@
 	<div class="container">
 	<?php
 		require_once('random_gen.php');
-		require_once('puzzle.php'); ?>
+		if (isset($_SESSION['image_name'])) {
+			require_once('puzzle.php');
+		} else {
+			header('Location: index.php');
+		}
+	?>
 	<div class="button_solid004 share" hidden>
   		<a href="#">シェアする</a>
 	</div>
@@ -284,6 +294,9 @@
 	<div class="button_solid004">
   		<input id="button1" type="submit" value="送信">
 	</div>
+	<div class="loading" style="display:none; text-align: center;">
+		<p>Now Loading...</p>
+	</div>
 	</form>
 	<footer class="footer1">
 		<p class="p1">© 2023 hackathon_e_team</p>
@@ -294,32 +307,37 @@
 ?>
 
 <script>
-//初期表示は非表示
-document.getElementById("disp").style.display ="none";
+	//初期表示は非表示
+	document.getElementById("disp").style.display ="none";
 
-function clickBtn1(){
-	const disp = document.getElementById("disp");
+	function clickBtn1(){
+		const disp = document.getElementById("disp");
 
-	if(disp.style.display=="block"){
-		// noneで非表示
-		disp.style.display ="none";
-	}else{
-		// blockで表示
-		disp.style.display ="block";
+		if(disp.style.display=="block"){
+			// noneで非表示
+			disp.style.display ="none";
+		}else{
+			// blockで表示
+			disp.style.display ="block";
+		}
 	}
-}
 
-function Close(){
-	const disp = document.getElementById("disp");
+	function Close(){
+		const disp = document.getElementById("disp");
 
-	if(disp.style.display=="block"){
-		// noneで非表示
-		disp.style.display ="none";
-	}else{
-		// blockで表示
-		disp.style.display ="block";
+		if(disp.style.display=="block"){
+			// noneで非表示
+			disp.style.display ="none";
+		}else{
+			// blockで表示
+			disp.style.display ="block";
+		}
 	}
-}
+
+	function NowLoading(){
+			// loading のdisplayをblockにする
+			document.getElementsByClassName("loading").style.display ="block";
+	}
 </script>
 </body>
 </html>
