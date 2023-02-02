@@ -28,7 +28,9 @@ padding: 0.1rem 0 0.2rem 0.5rem;
     align-items: center;
     margin: 0 auto;
     margin-bottom: 200px;
-    max-width: 240px;
+    right: -25px;
+    height:40px;
+    width: 25%;
     padding: 10px 25px;
     color: #FFF;
     transition: 0.3s ease-in-out;
@@ -227,6 +229,7 @@ button:hover {
 }
 .share{
     display:flex;
+    justify-content: center;
 }
 .share button {
     border: none;
@@ -235,9 +238,10 @@ button:hover {
     justify-content: space-around;
     align-items: center;
     margin: 0 auto;
+    left: -25px;
     margin-bottom: 200px;
-    width:110px;
-    height:110px;
+    width:25%;
+    height:65px;
     padding: 10px 25px;
     color: #FFF;
     transition: 0.3s ease-in-out;
@@ -250,6 +254,8 @@ button:hover {
     transform: translateY(3px);
 }
 .share img{
-    width:100px;
-    height:100px;
+    width: 40px;
+    min-width:30px;
+    min-height:30px;
+
 }
