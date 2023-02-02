@@ -87,6 +87,7 @@ const puzzleContainer = document.getElementById("puzzleContainer");
                     });
                     // imgタグを追加し、puzzleContainer全体に背景画像を設定
                     const img = document.createElement("img");
+                    img.name = "puzzle";
                     img.src = imageName;
                     img.style.width = "500px";
                     img.style.height = "500px";
