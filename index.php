@@ -56,7 +56,7 @@
 				display: flex;
 				justify-content: space-around;
 				align-items: center;
-				margin: 0 auto;
+				margin: auto;
 				width: 240px;
 				padding: 10px 25px;
 				color: #FFF;
@@ -127,8 +127,12 @@
 				text-align: center;
 				margin-bottom: 40px;
 			}
+			.word h2{
+				font-size: 35px;
+			}
 			.word input{
-				font-size:40px;
+				font-size:min(3vw,40px);
+				height: 50px;
 				width: 50%;
 			}
 			#puzzleContainer{
@@ -275,7 +279,7 @@
 	<div class="word">
 		<h2>パズルにしたい画像のワードを入力</h2>
 		<form action="index.php"method="post">
-		<input type="text"name="puzzlename"placeholder="英語で入力してください"style="text-align: center;">
+		<input type="text"name="puzzlename"placeholder="例: space,宇宙"style="text-align: center;">
 	</div>
 	<div class="button_solid004">
   		<input id="button1" type="submit" value="送信">
