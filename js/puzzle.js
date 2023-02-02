@@ -79,6 +79,8 @@ const puzzleContainer = document.getElementById("puzzleContainer");
             })) {
                 // delay
                 setTimeout(() => {
+                    // display: flexを設定
+                    document.getElementsByClassName("share")[0].style.display = "flex";
                     // class="share"のhiddenを外す
                     document.getElementsByClassName("share")[0].hidden = false;
                     // クリックイベントの削除
