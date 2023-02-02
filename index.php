@@ -259,7 +259,7 @@
 		</div>
 	</div>
 <?php
-	if(isset($_POST['puzzlename'])){
+	if(isset($_POST['puzzlename']) && !empty($_POST['puzzlename'])){
 ?>
 	<div class="container">
 	<?php
