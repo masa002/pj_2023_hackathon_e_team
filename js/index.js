@@ -26,6 +26,5 @@ function Close(){
 }
 
 function NowLoading(){
-        // loading のdisplayをblockにする
-        document.getElementsByClassName("loading").style.display ="block";
+    
 }
